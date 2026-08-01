@@ -1,0 +1,57 @@
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<link rel="stylesheet" href="assets/contact-form/style.css">  
+  
+</head>
+
+
+<div id="emailFormCard" class="card">
+  <div class="image">
+    <img src="https://cdn.pixabay.com/photo/2019/01/12/16/21/breakfast-3928800_960_720.jpg" alt="img">
+  </div>
+  <div id="subscribeForm" class="subscribe">
+    <h2>Contact me</h2>
+    <p>Want to get in touch? Drop an e-mail!</p>
+<form name="gform" id="gform" enctype="text/plain" action="GOOGLE_FORM_URL" target="hidden_iframe" onsubmit="submitted=true;">
+  
+  <fieldset>
+   <input style="background:#3c3c44;margin-bottom:10px;" type="text" placeholder="Name"  name="Google_Entry_ID_Name" id="Google_Entry_ID_Name" required>
+    
+    <input style="background:#3c3c44;margin-bottom:10px;" type="email" placeholder="Email"  name="Google_Entry_ID_Email" id="Google_Entry_ID_Email" required>
+    
+ <textarea name="Google_Entry_ID_TextArea" class="emailFormCard-TextArea" placeholder="How can I help you?" id="Google_Entry_ID_TextArea" cols="30" rows="5" required></textarea>
+  
+
+   
+
+   
+    <input type="submit" value="Send">
+  </fieldset>
+</form>
+    
+
+
+   </div>
+</div>  
+
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+
+ <script type="text/javascript">
+
+         var Google_Entry_ID_Name="entry.1416717319";
+  
+         var Google_Entry_ID_Email="entry.2145923340";  
+    
+         var Google_Entry_ID_TextArea="entry.355339717";     
+         
+          // Put your Google Form Link Here  (Make sure to use correct link as documented)
+         var Google_Form_Link="https://docs.google.com/forms/d/e/1FAIpQLSfy-tWg12-h-gbtJbk5g5GTPUpNZg2iML1fPgcAkNgJfqgzMQ/formResponse?"  
+    
+  </script> 
+
+<script src="assets/replace-vars.js">
+  </script>
+<script type="text/javascript" src="assets/email-form.js"></script>   
