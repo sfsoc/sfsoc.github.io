@@ -16,17 +16,17 @@
 
 @font-face {
   font-family: "Apollo Regular";
-  src: url("./assets/fonts/Apollo-Regular.woff");
+  src: url("assets/fonts/Apollo-Regular.woff");
 }
 
 @font-face {
   font-family:"Roubaix";
-  src:url("./assets/fonts/RoubaixIndustrielle-main/roubaixindustrielle/fonts/Regular/OTF/RoubaixIndustrielle-Regular14-23pt.otf")
+  src:url("assets/fonts/RoubaixIndustrielle-main/roubaixindustrielle/fonts/Regular/OTF/RoubaixIndustrielle-Regular14-23pt.otf")
 }
 
 @font-face {
   font-family:"Nimbus Sans L";
-  src:url("./assets/fonts/nimbus-sans-l/NimbusSanL-Bold.ttf")
+  src:url("assets/fonts/nimbus-sans-l/NimbusSanL-Bold.ttf")
 }
 
 body {
