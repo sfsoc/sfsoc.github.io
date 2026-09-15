@@ -1,0 +1,32 @@
+name: Update Next Event
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  
+  workflow_dispatch:          
+  push:
+    branches: [main]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install node-ical
+
+      - run: node fetch-next-event.mjs
+
+      - name: Commit updated event data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add next-event.json
+          git diff --staged --quiet || git commit -m "Update next event"
+          git push
