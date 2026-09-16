@@ -36,8 +36,9 @@ Retrieved 2026-09-13, License - CC BY-SA 3.0
 
     <div class="two-col">
       <div>
-        <h3>event</h3>
-                  <script>
+        <h3>Upcoming Event</h3>
+        <div id="next-event" class="loading">Loading next event…</div>
+          <script>
             async function renderNextEvent() {
               const container = document.getElementById('next-event');
               try {
@@ -77,7 +78,7 @@ Retrieved 2026-09-13, License - CC BY-SA 3.0
             }
 
             renderNextEvent();
-          </script>
+        </script>
       </div>
       <div>
         <h3>update?</h3>
