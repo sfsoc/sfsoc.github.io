@@ -1,11 +1,11 @@
 :root {
-  --color-bg: #eef1ec;
-  --color-logo: #222B56;
   --color-text: #222B56;
-  --color-muted: #6b6a63;
+  --color-muted: #8AA1B1;
   --color-border: #8AA1B1;
   --color-accent: #5a6b57;     
   --color-accent-light: #eef1ec;
+  --color-highlight: #FFE091;
+  --color-nav-text: #FFCB47;
   --max-width: 1080px;
   --nav-height: 52px;
 }
@@ -33,7 +33,9 @@ body {
   margin: 0;
   font-family: "Arial";
   color: var(--color-text);
-  background: var(--color-bg);
+  background: #F1FCFF;
+background: linear-gradient(to top, #F1FCFF 0%, #8AA1B1 100%);
+
   line-height: 1.5;
 }
 
@@ -60,27 +62,32 @@ img {
 
 .site-header {
   border-bottom: 1px solid var(--color-border);
+  max-width: var(--max-width);
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .logo-bar {
-  background: var(--color-logo);
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  /*background: rgb(34, 43, 86, 0.9);
+  border-radius: 16px;
+  max-width: 60%;
+  margin-left: 20px;
+  padding: 0 20px;*/
   display: flex;
-  justify-content: center;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .logo-lockup {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  gap: 8px;
   text-decoration: none;
 }
 
 .logo-mark {
-  height: 56px;
-  width: 56px;
+  height: 64px;
+  width: 64px;
   flex-shrink: 0;
 }
 
@@ -93,25 +100,27 @@ img {
   font-family: "Roubaix";
   font-size: 32px;
   line-height: 1.15;
-  background: #FFCB47;
+  color: var(--color-text);
+  /*background: #FFCB47;
   background: linear-gradient(to top, #FFCB47 0%, #8AA1B1 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;*/
 
 }
 
 .logo-text .uol {
   display: block;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  color: var(--color-muted);
-  margin-top: 2px;
+  font-family: "Roubaix";
+  font-size: 16px;
+  color: var(--color-text);
 }
 
 /*nav*/
 .nav {
-  background: var(--color-accent-light);
+  background: var(--color-text);
+  border-radius: 16px 16px 0px 0px;
   border-bottom: 1px solid var(--color-border);
+  font-family: "Nimbus Sans L";
 }
 
 .nav-list {
@@ -131,16 +140,22 @@ img {
   display: block;
   padding: 14px 18px;
   text-decoration: none;
-  color: var(--color-text);
-  font-size: 15px;
+  color: var(--color-nav-text);
+  font-size: 16px;
   white-space: nowrap;
 }
 
 .nav-list > li > a:hover,
 .nav-list > li > a:focus,
 .nav-list > li.current > a {
-  background: var(--color-accent);
-  color: #ffffff;
+  /* From https://css.glass */
+background: rgba(255, 203, 71);
+border-radius: 4px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 203, 71, 0.3);
+  color: var(--color-text);
 }
 
 
@@ -175,7 +190,7 @@ img {
 
 .dropdown li a:hover,
 .dropdown li a:focus {
-  background: var(--color-accent-light);
+  background: var(--color-nav-text);
 }
 
 /* small visual hint that an item has a submenu */
@@ -188,6 +203,12 @@ img {
 
 main {
   max-width: var(--max-width);
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.55);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
   margin: 0 auto;
   padding: 40px 20px 60px;
 }
@@ -205,9 +226,11 @@ main {
 
 section.content-block {
   margin-bottom: 40px;
+  margin-left: 20px;
   padding-bottom: 40px;
   border-bottom: 1px solid var(--color-border);
 }
+
 
 section.content-block:last-child {
   border-bottom: none;
