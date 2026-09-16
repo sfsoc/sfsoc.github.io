@@ -32,59 +32,49 @@ Retrieved 2026-09-13, License - CC BY-SA 3.0
   <section class="content-block">
     <h2>What's Happening</h2>
 
-  <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FLondon&showPrint=0&hl=en_GB&showTitle=0&title=Science%20Fiction%20Society%20Events&src=Y18wMGZhNTkxZDkxNTY3OWM0NDU4ZWUwM2YyZmMwOWI5YjlkYWViNGE4ZmM5MmQxYzBkNDgxMjFhZTdjYjgwZDlhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039be5" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
-    <div class="two-col">
-      <div>
-        <h3>Upcoming Event</h3>
+        <h3>Next Event</h3>
         <div id="next-event" class="loading">Loading next event…</div>
-          <script>
-            async function renderNextEvent() {
-              const container = document.getElementById('next-event');
-              try {
-                const res = await fetch('/next-event.json?_=' + Date.now());
-                if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
-                const event = await res.json();
+        <script>
+          async function renderNextEvent() {
+            const container = document.getElementById('next-event');
+            try {
+              const res = await fetch('/next-event.json?_=' + Date.now());
+              if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+              const event = await res.json();
 
-                if (!event) {
-                  container.className = 'empty';
-                  container.textContent = 'No upcoming events.';
-                  return;
-                }
-
-                const start = new Date(event.start);
-                const dateStr = event.allDay
-                  ? start.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-                  : start.toLocaleString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-
-                container.className = '';
-                container.innerHTML = `
-                  <h3>${escapeHtml(event.summary)}</h3>
-                  <p>${dateStr}</p>
-                  ${event.location ? `<p>📍 ${escapeHtml(event.location)}</p>` : ''}
-                  ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ''}
-                `;
-              } catch (err) {
-                console.error(err);
-                container.className = 'error';
-                container.textContent = 'Could not load the next event.';
+              if (!event) {
+                container.className = 'empty';
+                container.textContent = 'No upcoming events.';
+                return;
               }
-            }
 
-            function escapeHtml(str) {
-              const div = document.createElement('div');
-              div.textContent = str;
-              return div.innerHTML;
-            }
+              const start = new Date(event.start);
+              const dateStr = event.allDay
+                ? start.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                : start.toLocaleString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 
-            renderNextEvent();
+              container.className = '';
+              container.innerHTML = `
+                <h3>${escapeHtml(event.summary)}</h3>
+                <p>${dateStr}</p>
+                ${event.location ? `<p>📍 ${escapeHtml(event.location)}</p>` : ''}
+                ${event.description ? `<p>${escapeHtml(event.description)}</p>` : ''}
+              `;
+            } catch (err) {
+              console.error(err);
+              container.className = 'error';
+              container.textContent = 'Could not load the next event.';
+            }
+          }
+
+          function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+          }
+
+          renderNextEvent();
         </script>
-      </div>
-      <div>
-        <h3>update?</h3>
-        <p></p>
-      </div>
-    </div>
   </section>
 
   <section class="content-block">
