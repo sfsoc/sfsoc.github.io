@@ -40,7 +40,7 @@ background: linear-gradient(to top, #F1FCFF 0%, #8AA1B1 100%);
 }
 
 h1, h2, h3 {
-  font-family: "Nimbus Sans L";
+  font-family: "Apollo Regular";
   line-height: 1.25;
   margin-top: 0;
 }
@@ -120,7 +120,7 @@ img {
   background: var(--color-text);
   border-radius: 16px 16px 0px 0px;
   border-bottom: 1px solid var(--color-border);
-  font-family: "Nimbus Sans L";
+  font-family: "Apollo Regular";
 }
 
 .nav-list {
